@@ -27,9 +27,6 @@ class CounterResponse(BaseModel):
     value: int
     
 
-class IncrementValue(BaseModel):
-    increment_value: int
-
 @router.post("/counter/", response_model=CounterResponse)
 async def create_counter(counter_create: CounterCreate, db: db_dependency):
     if counter_create.initial_value < 0:
